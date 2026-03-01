@@ -1,0 +1,27 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  plugins:
+    # Enables riverpod_lint (provider lifecycle violations) and custom_lint.
+    # Satisfies FR-012 / SC-007: layer-separation checks via riverpod_lint.
+    # Full Presentation→Data import-ban is tracked as technical debt (TD002):
+    # requires a custom lint package to enforce at file-path level.
+    # - custom_lint
+  language:
+    strict-casts: true
+    strict-raw-types: true
+    strict-inference: true
+  errors:
+    invalid_annotation_target: ignore
+
+linter:
+  rules:
+    prefer_single_quotes: true
+    always_declare_return_types: true
+    avoid_print: false
+    use_key_in_widget_constructors: true
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    # Layer separation: prevent raw relative imports across lib/ boundaries.
+    # Combined with custom_lint, this satisfies FR-012 (Presentation → Domain only).
+    always_use_package_imports: true

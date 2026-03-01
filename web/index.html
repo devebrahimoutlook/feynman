@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="feynman">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>feynman</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <!-- Unsupported-browser guard (spec 001 edge case / FR-014).
+       Runs before Flutter bootstraps to catch IE and legacy browsers that
+       cannot execute WebAssembly or modern JS (const, fetch, Promise).
+       Users on these browsers see a branded static message rather than a
+       broken or empty screen. -->
+  <script>
+    (function () {
+      var supported =
+        typeof WebAssembly === 'object' &&
+        typeof Promise !== 'undefined' &&
+        typeof fetch !== 'undefined' &&
+        typeof document.querySelector !== 'undefined';
+
+      if (!supported) {
+        document.body.innerHTML =
+          '<div style="font-family:sans-serif;text-align:center;padding:64px 24px;">' +
+          '<h1 style="font-size:24px;color:#1a1a2e;">Feynman</h1>' +
+          '<p style="color:#555;max-width:480px;margin:0 auto;">' +
+          'Your browser is not supported. Please open Feynman in a modern browser ' +
+          'such as Chrome, Firefox, Safari, or Edge (latest two major versions).' +
+          '</p>' +
+          '</div>';
+      }
+    })();
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
